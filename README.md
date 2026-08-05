@@ -53,6 +53,27 @@ author one, evaluate it, ship it behind a canary, and debug it from a trace at 2
 
 ---
 
+### Open source
+
+Three small tools, one question each. Together they are the layer I care about: what goes into an agent, what
+happens when it breaks, and what it can reach when it shouldn't.
+
+**[context-budget](https://github.com/muralithailan/context-budget)** — *where did the tokens actually go?*
+Token dashboards report a total, which you cannot act on. This attributes every token to a named segment and
+tells you which of them earned their place. In the worked example, 44% of a turn was waste and 37% went to tool
+schemas the model never called — paid on every turn, forever.
+
+**[agent-chaos](https://github.com/muralithailan/agent-chaos)** — *what does it do when the tools misbehave?*
+Benchmarks measure capability against tools that work. This injects the failures that happen in production —
+timeouts, malformed responses, contradictions, and the most-missed one, the successful call that returns
+nothing — then grades behaviour rather than task success. Acknowledging a failure beats completing the task by
+inventing one. Two agents that pass the same capability test score 0.00 and 1.00.
+
+**[blast-radius](https://github.com/muralithailan/blast-radius)** — *what can the environment actually reach?*
+Every check maps to a step that worked in the July 2026 agent intrusion at Hugging Face. It reports
+reachability and stops — it never exploits what it finds and never reads a credential value, which is what
+makes it safe to run in the environment it is asking about.
+
 ### Currently building
 
 **Cadence** — a platform for building, versioning, running and observing conversational agents, and somewhere to
@@ -63,7 +84,7 @@ private for now — happy to walk through the architecture and the decision reco
 
 ---
 
-Most of what I build is internal or not yet public. The architecture, the trade-offs and the things that broke
-are all fair game in conversation.
+The larger systems I work on are internal, and Cadence is not public yet. The architecture, the trade-offs and
+the things that broke are all fair game in conversation.
 
 **[LinkedIn](https://www.linkedin.com/in/balamurali-thailan/)** · murali.thailan@gmail.com
